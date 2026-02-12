@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -38,5 +38,216 @@
       <h1>Coming soon! <br>SOLE-R1 model checkpoints, data, video demos, and code will be available here shortly. </h1>
     </div>
   </body>
-</html>
+</html> -->
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="SOLE-R1: Video-Language Reasoning as the Sole Reward for On-Robot RL"
+    />
+    <meta
+      name="keywords"
+      content="GVL, value learning, vision language models, VLM, robotics, reinforcement learning"
+    />
+    <!-- <meta
+      property="og:image"
+      content="https://generative-value-learning.github.io/static/images/icv/method.png"
+    /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SOLE-R1</title>
+
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SOLE-R1" />
+    <meta
+      name="twitter:description"
+      content=" "
+    />
+    <!-- <meta
+      name="twitter:image"
+      content="https://generative-value-learning.github.io/static/images/icv/method.png"
+    /> -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
+
+    <!-- <link rel="icon" href="./static/images/favicon.svg" /> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+<style>
+body {
+  font-family: system-ui;
+  /* background: #f5f5f5; */
+  background: #white;
+  max-width: 1500px;
+  margin: 2rem auto;
+}
+
+h1 {
+  text-align: center;
+
+}
+
+.video-block {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+
+video {
+  width: 100%;
+  margin-top: .5rem;
+}
+
+.description {
+  font-size: 1.1em;
+  margin-bottom: .3rem;
+}
+</style>
+</head>
+
+<body>
+
+    <section>
+      <h1 style="font-size:30px;font-weight: bold;">SOLE-R1: Video-Language Reasoning as the Sole Reward for On-Robot RL</h1>
+      <h1>
+                    <!-- <span class="link-block">
+                    <a target="_blank" href="https://arxiv.org/abs/2508.01943"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                    </a>
+                </span> -->
+                  <span class="link-block">
+                    <a
+                      href="https://sole-r1.github.io/"
+                      target="_blank"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code & Data (anonymous)</span>
+                    </a>
+                  </span>
+      </h1>
+      <br>
+      <br>
+      <br>
+    </section>
+    <section>
+      <h2 style="font-size:20px;">We are continuing to add more examples to this site. Example videos below show SOLE-R1 frame-level reasoning and progress prediction for the zero-shot online RL experiments. <br>
+        Also, to more clearly illustrate what the outputs of our video and reasoning synthesis approach look like (to generate SOLE-R1 training data), we provide video demonstrations at: <a href="https://sole-r1.github.io/synthesized_video_reasoning_examples/" target="_blank">https://sole-r1.github.io/synthesized_video_reasoning_examples/</a></h2>
+
+      <!-- <h4 style="font-weight: normal">The baseline method is the best existing in-context learning framework for video reasoning in embodied settings, <a href="https://generative-value-learning.github.io" target="_blank">GVL (https://generative-value-learning.github.io)</a>.</h4> -->
+      <!-- <h4 style="font-weight: normal">There are a total of 142 example videos across 27 tasks. The videos are separated into levels based on the amount of the task completed during the video. The amount of non-expert behavior in the video increases as the level decreases. The highest-level trajectories for each task show full task completion with near-expert behavior. The level 1 trajectories do not achieve any part of the task. -->
+        <!-- The task progress values generated by SOLE-R1 and GVL are shown in yellow and blue, respectively. The ground-truth progress values are shown in gray.  -->
+        <!-- <br><br> -->
+      <!-- </h4> -->
+      <br>
+
+<div id="video-container"></div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<script>
+
+const videoDescriptions = {
+'real_world_open_drawer_concatenated_web.mp4': 'Open the drawer.',
+'real_world_insert_pipe_concatenated_web.mp4': 'Insert the pipe into the opening.',
+'real_world_push_can_concatenated_web.mp4': 'Push the can near the blue cube.',
+'real_world_touch_strawberry_concatenated_web.mp4': 'Touch the strawberry.',
+'real_world_close_drawer_concatenated_web.mp4': 'Close the drawer.',
+'real_world_pick_can_concatenated_web.mp4': 'Pick the can from the table.',
+
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mscube_switchview_interp10_20260112_194227_concatenated_web.mp4': 'Pick up the cube from the table.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mspullcube_switchview_interp10_20260112_223756_concatenated_web.mp4': 'Pull the cube into the target area.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mspushcube_switchview_interp10_20260112_223621_concatenated_web.mp4': 'Push the cube into the target area.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_msopendrawer_20260112_032912_concatenated_web.mp4': 'Pull the drawer open.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mscube2_20260112_230314_concatenated_web.mp4': 'Pick up the cube from the table.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mscube3_20260114_230023_concatenated_web.mp4': 'Pick up the cube from the table.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mspicksingleycb_switchview_interp10_20260112_222856_concatenated_web.mp4': 'Pick up the object from the table.',
+
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lift_interp10_20260112_232609_concatenated_web.mp4': 'Pick up the cube from the table.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_door_interp10_20260112_231301_concatenated_web.mp4': 'Open the door.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lib_cdr_interp5_20260115_214714_concatenated_web.mp4': 'Close the drawer.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lib_omi_20260119_030648_concatenated_web.mp4': 'Open the microwave door.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lib_cmi_interp5_20260115_215001_concatenated_web.mp4': 'Close the microwave door.',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lib_ost_20260119_031115_concatenated_web.mp4': 'Rotate the knob to turn the stove on.',
+
+};
+
+const videoFiles = [
+'real_world_open_drawer_concatenated_web.mp4',
+'real_world_insert_pipe_concatenated_web.mp4',
+'real_world_push_can_concatenated_web.mp4',
+'real_world_touch_strawberry_concatenated_web.mp4',
+'real_world_close_drawer_concatenated_web.mp4',
+'real_world_pick_can_concatenated_web.mp4',
+
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mscube_switchview_interp10_20260112_194227_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mspullcube_switchview_interp10_20260112_223756_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mspushcube_switchview_interp10_20260112_223621_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_msopendrawer_20260112_032912_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mscube3_20260114_230023_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mscube2_20260112_230314_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_mspicksingleycb_switchview_interp10_20260112_222856_concatenated_web.mp4',
+
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lift_interp10_20260112_232609_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_door_interp10_20260112_231301_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lib_cdr_interp5_20260115_214714_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lib_cmi_interp5_20260115_215001_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lib_omi_20260119_030648_concatenated_web.mp4',
+'q3vl8b_1129b_sftv2_lr1e5_eb48_85000_v2_pt3b_lib_ost_20260119_031115_concatenated_web.mp4',
+];
+
+const container = document.getElementById("video-container");
+
+videoFiles.forEach(file => {
+  const block = document.createElement("div");
+  block.className = "video-block";
+
+  const desc = document.createElement("p");
+  desc.className = "description";
+  desc.textContent = videoDescriptions[file] || "No description available.";
+  desc.textContent = "Goal: " + desc.textContent
+
+  const video = document.createElement("video");
+  video.controls = true;
+
+  const source = document.createElement("source");
+  source.src = "videos/"+file;
+  source.type = "video/mp4";
+
+  video.appendChild(source);
+
+  block.appendChild(desc);
+  block.appendChild(video);
+  container.appendChild(block);
+});
+</script>
+
+</body>
+</html>
