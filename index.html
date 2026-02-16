@@ -123,6 +123,41 @@ video {
   font-size: 1.1em;
   margin-bottom: .3rem;
 }
+
+/* video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+} */
+
+/* video {
+  filter: brightness(1.001);
+} */
+ video::-webkit-media-controls-panel {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+video::-webkit-media-controls-overlay-enclosure {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+/* Optional: helps avoid a “tinted” look if Chrome blends with page bg */
+video {
+  background: #000;
+}
 </style>
 </head>
 
@@ -259,8 +294,17 @@ videoFiles.forEach(file => {
   desc.textContent = "Goal: " + desc.textContent
 
   const video = document.createElement("video");
-  video.controls = true;
+  // video.controls = true;
+  video.setAttribute("controls", "");
+  video.setAttribute("controlslist", "nodownload nofullscreen noremoteplayback");
+  video.disablePictureInPicture = true;
 
+  // video.controls = false;
+  // video.autoplay = false;
+  // video.playsInline = true;
+  // video.disablePictureInPicture = true;
+  // video.controlsList = "nodownload nofullscreen noremoteplayback";
+  
   const source = document.createElement("source");
   source.src = "videos/"+file;
   source.type = "video/mp4";
