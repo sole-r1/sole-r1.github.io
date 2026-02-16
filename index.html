@@ -158,6 +158,13 @@ video::-webkit-media-controls-overlay-enclosure {
 video {
   background: #000;
 }
+
+/* video {
+  filter: invert(1) hue-rotate(180deg);
+} */
+video::-webkit-media-controls-panel {
+  filter: invert(1) hue-rotate(180deg);
+}
 </style>
 </head>
 
@@ -177,14 +184,14 @@ video {
                 </span> -->
                   <span class="link-block">
                     <a
-                      href="https://sole-r1.github.io/"
+                      href="https://github.com/sole-r1/code"
                       target="_blank"
                       class="external-link button is-normal is-rounded is-dark"
                     >
                       <span class="icon">
                         <i class="fab fa-github"></i>
                       </span>
-                      <span>Code & Data (coming soon!)</span>
+                      <span>Code & Data</span>
                     </a>
                   </span>
       </h1>
@@ -296,7 +303,8 @@ videoFiles.forEach(file => {
   const video = document.createElement("video");
   // video.controls = true;
   video.setAttribute("controls", "");
-  video.setAttribute("controlslist", "nodownload nofullscreen noremoteplayback");
+  // video.setAttribute("controlslist", "nodownload nofullscreen noremoteplayback");
+    video.setAttribute("controlslist", "");
   video.disablePictureInPicture = true;
 
   // video.controls = false;
